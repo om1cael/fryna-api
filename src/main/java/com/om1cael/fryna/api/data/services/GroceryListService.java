@@ -3,7 +3,8 @@ package com.om1cael.fryna.api.data.services;
 import com.om1cael.fryna.api.data.dtos.GroceryListDTO;
 import com.om1cael.fryna.api.data.repositories.GroceryListRepository;
 import com.om1cael.fryna.api.domain.models.GroceryList;
-import jakarta.persistence.EntityNotFoundException;
+import com.om1cael.fryna.api.infra.exception.GroceryListException;
+import com.om1cael.fryna.api.infra.exception.enums.GroceryListErrors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class GroceryListService {
 
     public GroceryList getById(Long id) {
         Optional<GroceryList> groceryList = repository.findById(id);
-        if(groceryList.isEmpty()) throw new EntityNotFoundException();
+        if(groceryList.isEmpty()) throw new GroceryListException(GroceryListErrors.NOT_FOUND);
 
         return groceryList.get();
     }
