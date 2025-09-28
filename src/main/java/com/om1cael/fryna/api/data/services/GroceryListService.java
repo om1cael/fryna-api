@@ -29,8 +29,4 @@ public class GroceryListService {
 
         return groceryList.get();
     }
-
-    public List<GroceryList> getAll() {
-        return repository.findAll();
-    }
 }
