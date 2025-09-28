@@ -1,7 +1,6 @@
 package com.om1cael.fryna.api.domain.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
