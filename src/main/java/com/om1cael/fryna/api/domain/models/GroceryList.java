@@ -1,4 +1,4 @@
-package com.om1cael.fryna.api.domain.model;
+package com.om1cael.fryna.api.domain.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
