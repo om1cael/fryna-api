@@ -1,7 +1,7 @@
 package com.om1cael.fryna.api.presentation.controllers.exception;
 
 import com.om1cael.fryna.api.data.dtos.ExceptionDTO;
-import com.om1cael.fryna.api.infra.exception.ApiException;
+import com.om1cael.fryna.api.infra.exceptions.ApiException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

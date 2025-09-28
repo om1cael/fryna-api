@@ -1,4 +1,4 @@
-package com.om1cael.fryna.api.infra.exception;
+package com.om1cael.fryna.api.infra.exceptions;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

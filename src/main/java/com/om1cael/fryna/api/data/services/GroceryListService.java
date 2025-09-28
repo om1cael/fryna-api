@@ -3,8 +3,8 @@ package com.om1cael.fryna.api.data.services;
 import com.om1cael.fryna.api.data.dtos.GroceryListDTO;
 import com.om1cael.fryna.api.data.repositories.GroceryListRepository;
 import com.om1cael.fryna.api.domain.models.GroceryList;
-import com.om1cael.fryna.api.infra.exception.GroceryListException;
-import com.om1cael.fryna.api.infra.exception.enums.GroceryListErrors;
+import com.om1cael.fryna.api.infra.exceptions.GroceryListException;
+import com.om1cael.fryna.api.infra.exceptions.enums.GroceryListErrors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
