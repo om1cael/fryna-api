@@ -13,12 +13,11 @@ public class GroceryListService {
     @Autowired
     private GroceryListRepository repository;
 
-    public boolean create(GroceryListDTO groceryListDTO) {
+    public GroceryList create(GroceryListDTO groceryListDTO) {
         GroceryList groceryList = new GroceryList();
         groceryList.setName(groceryListDTO.name());
 
-        repository.save(groceryList);
-        return true;
+        return repository.save(groceryList);
     }
 
     public List<GroceryList> getAll() {

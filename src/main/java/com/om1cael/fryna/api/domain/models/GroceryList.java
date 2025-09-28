@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -21,5 +22,5 @@ public class GroceryList {
     private String name;
 
     @OneToMany(mappedBy = "groceryList", cascade = CascadeType.ALL)
-    private List<GroceryListItem> items;
+    private List<GroceryListItem> items = new ArrayList<>();
 }
