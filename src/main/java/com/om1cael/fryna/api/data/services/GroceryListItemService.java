@@ -1,6 +1,5 @@
 package com.om1cael.fryna.api.data.services;
 
-import com.om1cael.fryna.api.data.dtos.GroceryListDTO;
 import com.om1cael.fryna.api.data.dtos.GroceryListItemDTO;
 import com.om1cael.fryna.api.data.dtos.GroceryListItemResponseDTO;
 import com.om1cael.fryna.api.data.repositories.GroceryListItemRepository;
@@ -11,8 +10,6 @@ import com.om1cael.fryna.api.infra.exceptions.GroceryListException;
 import com.om1cael.fryna.api.infra.exceptions.enums.GroceryListErrors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class GroceryListItemService {
@@ -34,10 +31,10 @@ public class GroceryListItemService {
         groceryListItem.setGroceryList(groceryList);
 
         repository.save(groceryListItem);
-        return toDTO(groceryListItem);
+        return toResponseDTO(groceryListItem);
     }
 
-    private GroceryListItemResponseDTO toDTO(GroceryListItem groceryListItem) {
+    private GroceryListItemResponseDTO toResponseDTO(GroceryListItem groceryListItem) {
         return new GroceryListItemResponseDTO(
             groceryListItem.getId(),
             groceryListItem.getName(),
