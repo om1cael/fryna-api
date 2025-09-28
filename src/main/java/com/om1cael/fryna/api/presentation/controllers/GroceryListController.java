@@ -1,6 +1,7 @@
 package com.om1cael.fryna.api.presentation.controllers;
 
 import com.om1cael.fryna.api.data.dtos.GroceryListDTO;
+import com.om1cael.fryna.api.data.dtos.GroceryListResponseDTO;
 import com.om1cael.fryna.api.data.services.GroceryListService;
 import com.om1cael.fryna.api.domain.models.GroceryList;
 import jakarta.validation.Valid;
@@ -16,14 +17,14 @@ public class GroceryListController {
     private GroceryListService service;
 
     @PostMapping
-    private ResponseEntity<GroceryList> create(@RequestBody @Valid GroceryListDTO groceryListDTO) {
-        GroceryList groceryList = service.create(groceryListDTO);
+    private ResponseEntity<GroceryListResponseDTO> create(@RequestBody @Valid GroceryListDTO groceryListDTO) {
+        GroceryListResponseDTO groceryList = service.create(groceryListDTO);
         return new ResponseEntity<>(groceryList, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    private ResponseEntity<GroceryList> getById(@PathVariable(value = "id") Long id) {
-        GroceryList groceryList = service.getById(id);
+    private ResponseEntity<GroceryListResponseDTO> getById(@PathVariable(value = "id") Long id) {
+        GroceryListResponseDTO groceryList = service.getById(id);
         return ResponseEntity.ok(groceryList);
     }
 }
