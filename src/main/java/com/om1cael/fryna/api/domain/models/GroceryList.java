@@ -17,7 +17,7 @@ public class GroceryList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 1, max = 64)
+    @Size(min = 1, max = 32)
     @NotNull
     private String name;
 

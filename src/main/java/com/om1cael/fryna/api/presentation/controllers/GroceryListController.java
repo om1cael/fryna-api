@@ -20,4 +20,10 @@ public class GroceryListController {
         GroceryList groceryList = service.create(groceryListDTO);
         return new ResponseEntity<>(groceryList, HttpStatus.CREATED);
     }
+
+    @GetMapping("/{id}")
+    private ResponseEntity<GroceryList> getById(@PathVariable(value = "id") Long id) {
+        GroceryList groceryList = service.getById(id);
+        return ResponseEntity.ok(groceryList);
+    }
 }
