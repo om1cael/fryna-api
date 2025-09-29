@@ -43,13 +43,8 @@ public class GroceryListService {
         GroceryList groceryList = repository.findById(id)
                 .orElseThrow(() -> new GroceryListException(GroceryListErrors.NOT_FOUND));
 
-        try {
-            repository.delete(groceryList);
-            return true;
-        } catch (Exception e) {
-            logger.error("Error when deleting grocery list: ", e);
-            return false;
-        }
+        repository.delete(groceryList);
+        return true;
     }
 
     private GroceryListResponseDTO toResponseDTO(GroceryList groceryList) {
