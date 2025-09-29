@@ -21,6 +21,6 @@ public class GroceryList {
     @NotNull
     private String name;
 
-    @OneToMany(mappedBy = "groceryList", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "groceryList", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GroceryListItem> items = new ArrayList<>();
 }

@@ -20,4 +20,12 @@ public class GroceryListItemController {
         GroceryListItemResponseDTO responseDTO = service.create(id, dto);
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/{itemId}")
+    public ResponseEntity<Void> delete(@PathVariable(value = "id") Long listId, @PathVariable(value = "itemId") Long itemId) {
+        boolean deleted = service.delete(listId, itemId);
+        return deleted
+                ? ResponseEntity.noContent().build()
+                : ResponseEntity.notFound().build();
+    }
 }
