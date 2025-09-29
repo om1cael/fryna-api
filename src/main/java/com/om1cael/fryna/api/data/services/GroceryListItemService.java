@@ -19,10 +19,10 @@ public class GroceryListItemService {
     @Autowired
     private GroceryListItemRepository repository;
 
-    public GroceryListItemResponseDTO create(GroceryListItemDTO dto) {
+    public GroceryListItemResponseDTO create(Long id, GroceryListItemDTO dto) {
         GroceryListItem groceryListItem = new GroceryListItem();
         GroceryList groceryList = groceryListRepository
-                .findById(dto.listID())
+                .findById(id)
                 .orElseThrow(() -> new GroceryListException(GroceryListErrors.NOT_FOUND));
 
         groceryListItem.setName(dto.name());

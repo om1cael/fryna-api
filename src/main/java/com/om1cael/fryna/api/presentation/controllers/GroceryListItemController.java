@@ -16,8 +16,8 @@ public class GroceryListItemController {
     private GroceryListItemService service;
 
     @PostMapping
-    public ResponseEntity<GroceryListItemResponseDTO> create(@PathVariable(value = "id") int id, @Valid @RequestBody GroceryListItemDTO dto) {
-        GroceryListItemResponseDTO responseDTO = service.create(dto);
+    public ResponseEntity<GroceryListItemResponseDTO> create(@PathVariable(value = "id") Long id, @Valid @RequestBody GroceryListItemDTO dto) {
+        GroceryListItemResponseDTO responseDTO = service.create(id, dto);
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 }

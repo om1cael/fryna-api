@@ -16,9 +16,6 @@ public record GroceryListItemDTO(
     int quantity,
 
     @NotNull
-    boolean bought,
-
-    @NotNull
-    Long listID
+    boolean bought
 ) {
 }
