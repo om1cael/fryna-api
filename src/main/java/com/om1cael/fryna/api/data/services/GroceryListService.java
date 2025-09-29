@@ -8,6 +8,8 @@ import com.om1cael.fryna.api.domain.models.GroceryList;
 import com.om1cael.fryna.api.domain.models.GroceryListItem;
 import com.om1cael.fryna.api.infra.exceptions.GroceryListException;
 import com.om1cael.fryna.api.infra.exceptions.enums.GroceryListErrors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ import java.util.Optional;
 public class GroceryListService {
     @Autowired
     private GroceryListRepository repository;
+
+    final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public GroceryListResponseDTO create(GroceryListDTO groceryListDTO) {
         GroceryList groceryList = new GroceryList();
@@ -33,6 +37,19 @@ public class GroceryListService {
         if(groceryList.isEmpty()) throw new GroceryListException(GroceryListErrors.NOT_FOUND);
 
         return toResponseDTO(groceryList.get());
+    }
+
+    public boolean delete(Long id) {
+        GroceryList groceryList = repository.findById(id)
+                .orElseThrow(() -> new GroceryListException(GroceryListErrors.NOT_FOUND));
+
+        try {
+            repository.delete(groceryList);
+            return true;
+        } catch (Exception e) {
+            logger.error("Error when deleting grocery list: ", e);
+            return false;
+        }
     }
 
     private GroceryListResponseDTO toResponseDTO(GroceryList groceryList) {
